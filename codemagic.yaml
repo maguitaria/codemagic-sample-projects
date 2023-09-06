@@ -1,10 +1,11 @@
 workflows:
-
   react-native-android:
     name: Build React Native Android APK
+    max_build_duration: 120
+    instance_type: mac_mini
     environment:
+      flutter: 2.5.0  # Specify the Flutter version you want to use
       node: latest
-      flutter: latest
     scripts:
       - name: Install dependencies
         script: npm install
