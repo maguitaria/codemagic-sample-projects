@@ -1,8 +1,14 @@
-# Workflow setup for building Native Android project
 workflows:
-    android-app: # workflow ID
-        name: Android app # workflow name
-        scripts:
-            - ./gradlew assembleDebug
-        artifacts:
-            - build/outputs/**/**/*.apk
+  version: 2
+  react-native-android:
+    name: Build React Native Android APK
+    environment:
+      node: latest
+      flutter: latest
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Build Android APK
+        script: npm run android:build
+    artifacts:
+      - android/app/build/outputs/**/*.apk
